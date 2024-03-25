@@ -63,7 +63,7 @@ class Handler():
             self.sendSerial('s', int(dmg))
         elif mode == 'vibro':
             self.sendSerial('v', int(dmg))
-
+        print(ts,int(datetime.utcnow().timestamp()))
         text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
         self.ui.console.setPlainText(self.ui.console.toPlainText() + text)
         self.ui.console.moveCursor(QtGui.QTextCursor.End)
