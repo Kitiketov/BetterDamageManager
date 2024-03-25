@@ -5,7 +5,7 @@ by kitiketov
 
 import sys
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets,QtGui
 from PyQt5.QtCore import QPoint
 from design import Ui_MainWindow
 from handler import Handler
@@ -24,8 +24,8 @@ class MyWindow(QtWidgets.QMainWindow):
 
         self.ui.editFolderPath.clicked.connect(lambda: self.h.edit_file_folder())
         self.ui.startButton.clicked.connect(lambda: self.h.start_tracking())
-        self.ui.vibroTestButton.clicked.connect(lambda: self.h.test_write(mode="vibro"))
-        self.ui.shockTestButton.clicked.connect(lambda: self.h.test_write(mode="shock"))
+        self.ui.vibroTestButton.clicked.connect(lambda: self.h.test_write(mode='vibro'))
+        self.ui.shockTestButton.clicked.connect(lambda: self.h.test_write(mode='shock'))
         self.ui.openPortButton.clicked.connect(lambda: self.h.openPort())
         self.oldPos = QPoint(0, 0)
 
@@ -39,7 +39,7 @@ class MyWindow(QtWidgets.QMainWindow):
 
 
 app = QtWidgets.QApplication([])
-# app.setWindowIcon(QtGui.QIcon('Untitled.ico'))
+app.setWindowIcon(QtGui.QIcon('BD.ico'))
 application = MyWindow()
 application.show()
 sys.exit(app.exec())

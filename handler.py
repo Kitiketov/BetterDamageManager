@@ -46,19 +46,19 @@ class Handler():
         self.ui.folderPath.setText(self.path_to_txt)
 
     def test_write(self, mode):
-        with open(self.path_to_txt, "w+") as f:
+        with open(self.path_to_txt, 'w+') as f:
             f.write(f"{mode}/1/{int(datetime.now(timezone.utc).timestamp())}\n")
 
     def file_changed(self, path):
         with open(self.path_to_txt) as f:
             line = f.readline()
 
-        mode, dmg, time = line.split("/")
+        mode, dmg, time = line.split('/')
         ts = int(time)
 
-        if mode == "shock":
+        if mode == 'shock':
             self.sendSerial('s', int(dmg))
-        elif mode == "vibro":
+        elif mode == 'vibro':
             self.sendSerial('v', int(dmg))
 
         text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
@@ -75,25 +75,25 @@ class Handler():
         self.ui.label.setEnabled(True)
         self.watcher.fileChanged.connect(self.file_changed)
 
-        self.swithButton(self.ui.startButton, "Stop tracking", self.stop_tracking)
+        self.swithButton(self.ui.startButton, 'Stop tracking', self.stop_tracking)
 
     def stop_tracking(self):
         self.watcher.removePath(self.path_to_txt)
         self.ui.editFolderPath.setEnabled(True)
         self.ui.label.setEnabled(False)
 
-        self.swithButton(self.ui.startButton, "Start tracking", self.start_tracking)
+        self.swithButton(self.ui.startButton, 'Start tracking', self.start_tracking)
 
     def openPort(self):
         self.serial.setPortName(self.ui.comBox.currentText())
         self.serial.open(QIODevice.ReadWrite)
         self.ui.comBox.setEnabled(False)
-        self.swithButton(self.ui.openPortButton, "Close port", self.closePort)
+        self.swithButton(self.ui.openPortButton, 'Close port', self.closePort)
 
     def closePort(self):
         self.serial.close()
         self.ui.comBox.setEnabled(True)
-        self.swithButton(self.ui.openPortButton, "Open port", self.openPort)
+        self.swithButton(self.ui.openPortButton, 'Open port', self.openPort)
 
     def swithButton(self, widget, title, func):
         widget.disconnect()
