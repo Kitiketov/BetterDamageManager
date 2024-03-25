@@ -25,6 +25,8 @@ class Handler():
         self.ui.comBox.addItems(self.portList)
         self.ui.folderPath.setText(self.path_to_txt)
         self.last_time = int(datetime.now(timezone.utc).timestamp())
+        self.last_mode = 'v'
+
     def show_message(self, widget, message=''):
         if message:
             widget.setText(message)
@@ -102,4 +104,7 @@ class Handler():
         widget.clicked.connect(lambda: func())
 
     def sendSerial(self, mode, value):
+        if self.last_mode !=  mode:
+            self.serial.write(f"{mode}{0}".encode())
         self.serial.write(f"{mode}{value}".encode())
+        self.last_mode = mode
