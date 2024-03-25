@@ -24,7 +24,7 @@ class Handler():
             self.portList.append(port.portName())
         self.ui.comBox.addItems(self.portList)
         self.ui.folderPath.setText(self.path_to_txt)
-
+        self.last_time = int(datetime.now(timezone.utc).timestamp())
     def show_message(self, widget, message=''):
         if message:
             widget.setText(message)
@@ -55,7 +55,8 @@ class Handler():
 
         mode, dmg, time = line.split('/')
         ts = int(time)
-
+        if ts<=self.last_time:
+            return 'Too Fast'
         if mode == 'shock':
             self.sendSerial('s', int(dmg))
         elif mode == 'vibro':
@@ -65,7 +66,7 @@ class Handler():
         self.ui.console.setPlainText(self.ui.console.toPlainText() + text)
         self.ui.console.moveCursor(QtGui.QTextCursor.End)
         self.ui.console.ensureCursorVisible()
-
+        self.last_time = ts
     def start_tracking(self):
         if not os.path.isfile(self.path_to_txt):
             self.show_message(self.ui.errorMessage, 'No file selected')

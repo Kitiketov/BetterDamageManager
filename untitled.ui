@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>441</width>
+    <width>449</width>
     <height>274</height>
    </rect>
   </property>
@@ -32,7 +32,7 @@
       <x>8</x>
       <y>-1</y>
       <width>431</width>
-      <height>266</height>
+      <height>268</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -45,6 +45,17 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:
+	font: 8pt &quot;Pristina&quot;;
+}</string>
          </property>
          <property name="text">
           <string>Start tracking</string>
@@ -61,6 +72,11 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel{
@@ -89,6 +105,11 @@ QLabel:disabled{
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
         </widget>
        </item>
        <item>
@@ -98,6 +119,11 @@ QLabel:disabled{
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
          </property>
          <property name="text">
           <string>Open Port</string>
@@ -116,6 +142,11 @@ QLabel:disabled{
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
          <property name="text">
           <string>Test</string>
          </property>
@@ -123,6 +154,11 @@ QLabel:disabled{
        </item>
        <item>
         <widget class="QPushButton" name="vibroTestButton">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
          <property name="text">
           <string>Vibro</string>
          </property>
@@ -130,6 +166,11 @@ QLabel:disabled{
        </item>
        <item>
         <widget class="QPushButton" name="shockTestButton">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
          <property name="text">
           <string>Shock</string>
          </property>
@@ -147,6 +188,11 @@ QLabel:disabled{
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+          </font>
+         </property>
          <property name="text">
           <string>Edit Folder</string>
          </property>
@@ -154,6 +200,12 @@ QLabel:disabled{
        </item>
        <item>
         <widget class="QLabel" name="folderPath">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>1</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -170,42 +222,26 @@ QLabel:disabled{
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <widget class="QLabel" name="errorMessage">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>140</y>
-      <width>331</width>
+      <x>11</x>
+      <y>220</y>
+      <width>431</width>
       <height>41</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="messageLayout">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="errorMessage">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLabel{
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
 	
 	border-radius: 10px;
 	background-color:rgb(236, 66, 69);
@@ -219,29 +255,13 @@ QLabel:disabled{
  	background-color:rgba(0, 0, 0, 0);
 	color: rgba(216, 217, 218,0);
 }</string>
-       </property>
-       <property name="text">
-        <string>Error</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    </property>
+    <property name="text">
+     <string>Error</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
  </widget>
