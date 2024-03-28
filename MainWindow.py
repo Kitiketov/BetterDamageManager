@@ -38,7 +38,7 @@ class MyWindow(QtWidgets.QMainWindow):
         self.oldPos = event.globalPos()
 
 
-app = QtWidgets.QApplication([])
+app = QtWidgets.QApplication(sys.argv + ['-platform', 'windows:darkmode=1'])
 app.setWindowIcon(QtGui.QIcon('BD.ico'))
 application = MyWindow()
 application.show()

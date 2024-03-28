@@ -17,22 +17,28 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">
+TitleBar {
+    background-color: #2a3440;
+}</string>
   </property>
   <property name="animated">
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QWidget{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+}</string>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>-1</y>
+      <y>6</y>
       <width>431</width>
-      <height>268</height>
+      <height>261</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -49,12 +55,22 @@
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{
-font:
-	font: 8pt &quot;Pristina&quot;;
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
 }</string>
          </property>
          <property name="text">
@@ -68,7 +84,7 @@ font:
           <bool>false</bool>
          </property>
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -80,16 +96,16 @@ font:
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel{
-background-color: rgb(0, 255, 0);
-border-radius: 10px
+background-color: rgb(0, 153, 0);
+border-radius: 5px
 }
 QLabel:disabled{
- 	background-color:lightgrey;
-	color: rgba(216, 217, 218,0);
+ 	background-color:rgba(59, 59,59,255);
+	color: rgba(216, 217, 218,100);
 }</string>
          </property>
          <property name="text">
-          <string>Online</string>
+          <string>Offline</string>
          </property>
         </widget>
        </item>
@@ -108,7 +124,29 @@ QLabel:disabled{
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QComboBox:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}
+QComboBox:disabled{
+	background-color:rgb(40, 40, 40);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}
+</string>
          </property>
         </widget>
        </item>
@@ -123,7 +161,23 @@ QLabel:disabled{
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}</string>
          </property>
          <property name="text">
           <string>Open Port</string>
@@ -157,7 +211,23 @@ QLabel:disabled{
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}</string>
          </property>
          <property name="text">
           <string>Vibro</string>
@@ -169,7 +239,23 @@ QLabel:disabled{
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}</string>
          </property>
          <property name="text">
           <string>Shock</string>
@@ -182,6 +268,9 @@ QLabel:disabled{
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="editFolderPath">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -191,7 +280,28 @@ QLabel:disabled{
          <property name="font">
           <font>
            <family>Terminal</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(59, 59, 59);
+	color: rgb(185, 187, 190);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(97, 97, 97);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}
+QPushButton:disabled{
+	background-color:rgb(40, 40, 40);
+	color: rgb(216, 217, 218);
+	font: 10pt &quot;Terminal&quot;;
+}</string>
          </property>
          <property name="text">
           <string>Edit Folder</string>
@@ -215,6 +325,26 @@ QLabel:disabled{
      </item>
      <item>
       <widget class="QTextEdit" name="console">
+       <property name="styleSheet">
+        <string notr="true">QTextEdit{
+background-color:rgb(97, 97,97);
+}
+QScrollBar:vertical {
+    background:rgb(60, 64, 71);
+    width:10px;
+	border: none;
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:vertical {
+	border: 1px solid rgb(255, 255, 0);
+    background:rgb(185, 187, 190);
+	border: none;
+    
+}</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAsNeeded</enum>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -261,6 +391,34 @@ QLabel:disabled{
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="counterDmgLabel">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>245</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri Light</family>
+      <pointsize>5</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+background-color : rbga(0,0,0,0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
   </widget>

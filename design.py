@@ -16,13 +16,19 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
         MainWindow.resize(449, 274)
-        MainWindow.setStyleSheet("")
+        MainWindow.setStyleSheet("\n"
+"TitleBar {\n"
+"    background-color: #2a3440;\n"
+"}")
         MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("")
+        self.centralwidget.setStyleSheet("QWidget{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"}")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(8, -1, 431, 268))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(8, 6, 431, 261))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -37,16 +43,26 @@ class Ui_MainWindow(object):
         self.startButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.startButton.setFont(font)
         self.startButton.setStyleSheet("QPushButton{\n"
-"font:\n"
-"    font: 8pt \"Pristina\";\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
 "}")
         self.startButton.setObjectName("startButton")
         self.horizontalLayout_2.addWidget(self.startButton)
         self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.label.setEnabled(False)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
@@ -55,12 +71,12 @@ class Ui_MainWindow(object):
         font.setFamily("Terminal")
         self.label.setFont(font)
         self.label.setStyleSheet("QLabel{\n"
-"background-color: rgb(0, 255, 0);\n"
-"border-radius: 10px\n"
+"background-color: rgb(0, 153, 0);\n"
+"border-radius: 5px\n"
 "}\n"
 "QLabel:disabled{\n"
-"     background-color:lightgrey;\n"
-"    color: rgba(216, 217, 218,0);\n"
+"     background-color:rgba(59, 59,59,255);\n"
+"    color: rgba(216, 217, 218,100);\n"
 "}")
         self.label.setObjectName("label")
         self.horizontalLayout_2.addWidget(self.label)
@@ -75,7 +91,27 @@ class Ui_MainWindow(object):
         self.comBox.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.comBox.setFont(font)
+        self.comBox.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QComboBox:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QComboBox:disabled{\n"
+"    background-color:rgb(40, 40, 40);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"")
         self.comBox.setObjectName("comBox")
         self.horizontalLayout_4.addWidget(self.comBox)
         self.openPortButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
@@ -86,7 +122,21 @@ class Ui_MainWindow(object):
         self.openPortButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.openPortButton.setFont(font)
+        self.openPortButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
         self.openPortButton.setObjectName("openPortButton")
         self.horizontalLayout_4.addWidget(self.openPortButton)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
@@ -106,19 +156,48 @@ class Ui_MainWindow(object):
         self.vibroTestButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.vibroTestButton.setFont(font)
+        self.vibroTestButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
         self.vibroTestButton.setObjectName("vibroTestButton")
         self.horizontalLayout_5.addWidget(self.vibroTestButton)
         self.shockTestButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.shockTestButton.setFont(font)
+        self.shockTestButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
         self.shockTestButton.setObjectName("shockTestButton")
         self.horizontalLayout_5.addWidget(self.shockTestButton)
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.editFolderPath = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.editFolderPath.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -126,7 +205,26 @@ class Ui_MainWindow(object):
         self.editFolderPath.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.editFolderPath.setFont(font)
+        self.editFolderPath.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:disabled{\n"
+"    background-color:rgb(40, 40, 40);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
         self.editFolderPath.setObjectName("editFolderPath")
         self.horizontalLayout.addWidget(self.editFolderPath)
         self.folderPath = QtWidgets.QLabel(self.verticalLayoutWidget)
@@ -139,6 +237,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.folderPath)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.console = QtWidgets.QTextEdit(self.verticalLayoutWidget)
+        self.console.setStyleSheet("QTextEdit{\n"
+"background-color:rgb(97, 97,97);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"    background:rgb(60, 64, 71);\n"
+"    width:10px;\n"
+"    border: none;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"QScrollBar::handle:vertical {\n"
+"    border: 1px solid rgb(255, 255, 0);\n"
+"    background:rgb(185, 187, 190);\n"
+"    border: none;\n"
+"    \n"
+"}")
+        self.console.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.console.setReadOnly(True)
         self.console.setObjectName("console")
         self.verticalLayout.addWidget(self.console)
@@ -166,6 +280,20 @@ class Ui_MainWindow(object):
 "}")
         self.errorMessage.setAlignment(QtCore.Qt.AlignCenter)
         self.errorMessage.setObjectName("errorMessage")
+        self.counterDmgLabel = QtWidgets.QLabel(self.centralwidget)
+        self.counterDmgLabel.setGeometry(QtCore.QRect(400, 245, 31, 31))
+        font = QtGui.QFont()
+        font.setFamily("Calibri Light")
+        font.setPointSize(5)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.counterDmgLabel.setFont(font)
+        self.counterDmgLabel.setStyleSheet("QLabel{\n"
+"background-color : rbga(0,0,0,0);\n"
+"}\n"
+"")
+        self.counterDmgLabel.setObjectName("counterDmgLabel")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -175,10 +303,11 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.startButton.setText(_translate("MainWindow", "Start tracking"))
-        self.label.setText(_translate("MainWindow", "Online"))
+        self.label.setText(_translate("MainWindow", "Offline"))
         self.openPortButton.setText(_translate("MainWindow", "Open Port"))
         self.label_2.setText(_translate("MainWindow", "Test"))
         self.vibroTestButton.setText(_translate("MainWindow", "Vibro"))
         self.shockTestButton.setText(_translate("MainWindow", "Shock"))
         self.editFolderPath.setText(_translate("MainWindow", "Edit Folder"))
         self.errorMessage.setText(_translate("MainWindow", "Error"))
+        self.counterDmgLabel.setText(_translate("MainWindow", "0"))

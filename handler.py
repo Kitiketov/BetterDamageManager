@@ -54,26 +54,30 @@ class Handler():
     def file_changed(self, path):
         with open(self.path_to_txt) as f:
             line = f.readline()
-
-        mode, dmg, time = line.split('/')
-        ts = int(time)
-        if ts<=self.last_time:
-            return 'Too Fast'
-        if mode == 'shock':
-            self.sendSerial('s', int(dmg))
-        elif mode == 'vibro':
-            self.sendSerial('v', int(dmg))
-        text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
-        self.ui.console.setPlainText(self.ui.console.toPlainText() + text)
-        self.ui.console.moveCursor(QtGui.QTextCursor.End)
-        self.ui.console.ensureCursorVisible()
-        self.last_time = ts
+        try:
+            mode, dmg, time = line.split('/')
+            ts = int(time)
+            if ts<=self.last_time:
+                return 'Too Fast'
+            if mode == 'shock':
+                self.sendSerial('s', int(dmg))
+            elif mode == 'vibro':
+                self.sendSerial('v', int(dmg))
+            self.ui.counterDmgLabel.setText(str(int(self.ui.counterDmgLabel.text())+1))
+            text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
+            self.ui.console.setPlainText(self.ui.console.toPlainText() + text)
+            self.ui.console.moveCursor(QtGui.QTextCursor.End)
+            self.ui.console.ensureCursorVisible()
+            self.last_time = ts
+        except:
+            print(f'Error with line')
     def start_tracking(self):
         if not os.path.isfile(self.path_to_txt):
             self.show_message(self.ui.errorMessage, 'No file selected')
             return 'Error'
         self.watcher.addPath(self.path_to_txt)
         self.ui.editFolderPath.setEnabled(False)
+        self.ui.label.setText("Online")
         self.ui.label.setEnabled(True)
         self.watcher.fileChanged.connect(self.file_changed)
 
@@ -82,6 +86,7 @@ class Handler():
     def stop_tracking(self):
         self.watcher.removePath(self.path_to_txt)
         self.ui.editFolderPath.setEnabled(True)
+        self.ui.label.setText("Offline")
         self.ui.label.setEnabled(False)
 
         self.swithButton(self.ui.startButton, 'Start tracking', self.start_tracking)
@@ -107,3 +112,6 @@ class Handler():
             self.serial.write(f"{mode}{0}".encode())
         self.serial.write(f"{mode}{value}".encode())
         self.last_mode = mode
+    
+    def calibrating_remote_controller(self):
+        self.sendSerial('v',1)
