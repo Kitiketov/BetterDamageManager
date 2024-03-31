@@ -6,4 +6,4 @@
 ### Поддерживает моды для следующих игр/приложений:
 
 * The binding of Isaac: repentance || BetterDamageForIsaac(<https://pastebin.com/byihJ8cN>)
-* Minecraft: Java Edition || BetterDamage()
+* Minecraft: Java Edition || BetterDamage(<https://github.com/Kitiketov/BetterDamage>)

@@ -25,7 +25,7 @@ class Handler():
         self.ui.comBox.addItems(self.portList)
         self.ui.folderPath.setText(self.path_to_txt)
         self.last_time = int(datetime.now(timezone.utc).timestamp())
-        self.last_mode = 'v'
+        self.last_mode = 'no'
 
     def show_message(self, widget, message=''):
         if message:
@@ -57,12 +57,15 @@ class Handler():
         try:
             mode, dmg, time = line.split('/')
             ts = int(time)
+            if int(dmg)<=0:
+                mode = "vibro"
             if ts<=self.last_time:
                 return 'Too Fast'
             if mode == 'shock':
                 self.sendSerial('s', int(dmg))
             elif mode == 'vibro':
                 self.sendSerial('v', int(dmg))
+            
             self.ui.counterDmgLabel.setText(str(int(self.ui.counterDmgLabel.text())+1))
             text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
             self.ui.console.setPlainText(self.ui.console.toPlainText() + text)
@@ -109,6 +112,8 @@ class Handler():
 
     def sendSerial(self, mode, value):
         if self.last_mode !=  mode:
+            self.serial.write(f"{mode}{0}".encode())
+        elif int(datetime.now(timezone.utc).timestamp())-self.last_time>=30:
             self.serial.write(f"{mode}{0}".encode())
         self.serial.write(f"{mode}{value}".encode())
         self.last_mode = mode
