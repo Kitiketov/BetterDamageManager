@@ -11,7 +11,7 @@ class Handler():
         self.ui = ui
         self.MyWindow = MyWindow
 
-        self.path_to_txt = 'D:/Games/The Binding of Isaac Rebirth/gameinfo.txt'
+        self.path_to_txt = ''
 
         self.clipboard = QtWidgets.QApplication.clipboard()
         self.timer = QtCore.QTimer()
