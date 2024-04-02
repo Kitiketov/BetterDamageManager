@@ -25,7 +25,7 @@ class Handler():
         self.ui.comBox.addItems(self.portList)
         self.ui.folderPath.setText(self.path_to_txt)
         self.last_time = int(datetime.now(timezone.utc).timestamp())
-        self.last_mode = 'no'
+        self.last_mode = 'none'
 
     def show_message(self, widget, message=''):
         if message:
@@ -39,7 +39,6 @@ class Handler():
 
     def edit_file_folder(self):
         _path = self.get_path_to_file()
-        print(_path)
         if not os.path.isfile(_path):
             self.show_message(self.ui.errorMessage, 'No file selected')
             return 'Error'
@@ -48,6 +47,9 @@ class Handler():
         self.ui.folderPath.setText(self.path_to_txt)
 
     def test_write(self, mode):
+        if not os.path.isfile(self.path_to_txt):
+            self.show_message(self.ui.errorMessage, 'No file selected')
+            return 'Error'
         with open(self.path_to_txt, 'w+') as f:
             f.write(f"{mode}/1/{int(datetime.now(timezone.utc).timestamp())}\n")
 
@@ -65,6 +67,10 @@ class Handler():
                 self.sendSerial('s', int(dmg))
             elif mode == 'vibro':
                 self.sendSerial('v', int(dmg))
+            elif mode == 'powerup':
+                self.sendSerial('u', int(dmg))
+            elif mode == 'powerdown':
+                self.sendSerial('d', int(dmg))
             
             self.ui.counterDmgLabel.setText(str(int(self.ui.counterDmgLabel.text())+1))
             text = datetime.fromtimestamp(ts).strftime('%H:%M:%S ') + mode + "\n"
@@ -116,7 +122,8 @@ class Handler():
         elif int(datetime.now(timezone.utc).timestamp())-self.last_time>=30:
             self.serial.write(f"{mode}{0}".encode())
         self.serial.write(f"{mode}{value}".encode())
-        self.last_mode = mode
+        if mode not in ['u','d']:
+            self.last_mode = mode
     
     def calibrating_remote_controller(self):
         self.sendSerial('v',1)

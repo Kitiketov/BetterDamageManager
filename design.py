@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(449, 274)
+        MainWindow.resize(466, 274)
         MainWindow.setStyleSheet("\n"
 "TitleBar {\n"
 "    background-color: #2a3440;\n"
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(8, 6, 431, 261))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(8, 6, 451, 261))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -193,6 +193,56 @@ class Ui_MainWindow(object):
 "}")
         self.shockTestButton.setObjectName("shockTestButton")
         self.horizontalLayout_5.addWidget(self.shockTestButton)
+        self.powerUpButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.powerUpButton.sizePolicy().hasHeightForWidth())
+        self.powerUpButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.powerUpButton.setFont(font)
+        self.powerUpButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
+        self.powerUpButton.setObjectName("powerUpButton")
+        self.horizontalLayout_5.addWidget(self.powerUpButton)
+        self.powerDownButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.powerDownButton.sizePolicy().hasHeightForWidth())
+        self.powerDownButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Terminal")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.powerDownButton.setFont(font)
+        self.powerDownButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(59, 59, 59);\n"
+"    color: rgb(185, 187, 190);\n"
+"    font: 10pt \"Terminal\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(97, 97, 97);\n"
+"    color: rgb(216, 217, 218);\n"
+"    font: 10pt \"Terminal\";\n"
+"}")
+        self.powerDownButton.setObjectName("powerDownButton")
+        self.horizontalLayout_5.addWidget(self.powerDownButton)
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -308,6 +358,8 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Test"))
         self.vibroTestButton.setText(_translate("MainWindow", "Vibro"))
         self.shockTestButton.setText(_translate("MainWindow", "Shock"))
+        self.powerUpButton.setText(_translate("MainWindow", "+"))
+        self.powerDownButton.setText(_translate("MainWindow", "-"))
         self.editFolderPath.setText(_translate("MainWindow", "Edit Folder"))
         self.errorMessage.setText(_translate("MainWindow", "Error"))
         self.counterDmgLabel.setText(_translate("MainWindow", "0"))

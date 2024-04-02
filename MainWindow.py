@@ -26,6 +26,8 @@ class MyWindow(QtWidgets.QMainWindow):
         self.ui.startButton.clicked.connect(lambda: self.h.start_tracking())
         self.ui.vibroTestButton.clicked.connect(lambda: self.h.test_write(mode='vibro'))
         self.ui.shockTestButton.clicked.connect(lambda: self.h.test_write(mode='shock'))
+        self.ui.powerUpButton.clicked.connect(lambda: self.h.test_write(mode='powerup'))
+        self.ui.powerDownButton.clicked.connect(lambda: self.h.test_write(mode='powerdown'))
         self.ui.openPortButton.clicked.connect(lambda: self.h.openPort())
         self.oldPos = QPoint(0, 0)
 
